@@ -1,0 +1,45 @@
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4" >  
+    <div [hidden]="submitted" style="width: 400px;">  
+      <form [formGroup]="utilisateursaveform" #saveutilisateur (ngSubmit)="saveUtilisateur(saveUtilisateur)">  
+          <div class="form-group">  
+              <label for="name">Utilisateur nom</label>  
+              <input type="text" class="form-control"  formControlName="nom" data-toggle="tooltip"   
+                 data-placement="right" title="Enter Student Name" >  
+          </div>  
+
+          <div class="form-group">  
+            <label for="name">Utilisateur prenom</label>  
+            <input type="text" class="form-control"  formControlName="prenom" data-toggle="tooltip"   
+               data-placement="right" title="Enter Student Name" >  
+        </div>
+
+        <div class="form-group">  
+            <label for="name">mot de passe</label>  
+            <input type="password" class="form-control"  formControlName="mdp" data-toggle="tooltip"   
+               data-placement="right" title="Enter Student Name" >  
+        </div>
+    
+          <div class="form-group">  
+              <label for="name">Email</label>  
+              <input type="email" class="form-control" formControlName="email"   
+                data-toggle="tooltip" data-placement="right" title="Enter Student Email">  
+          </div>   
+    
+          <button type="submit" class="btn btn-success">Envoyer</button>  
+      </form>  
+  </div>  
+  </div>  
+  <div class="col-sm-4"></div>  
+</div>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4">  
+      <div [hidden]="!submitted">  
+         <h4>Utilisateur ajouter avec succés!</h4>  
+         <button (click)="addUtilisateurForm()" class='btn btn-primary'>Ajouter d autre utilisateur</button>  
+      </div>        
+  </div>  
+  <div class="col-sm-4"></div>  
+</div>  
