@@ -13,6 +13,7 @@ export class AddCoursComponent implements OnInit {
   
   cours : Cours=new Cours();  
   submitted = false;  
+  etat4:boolean | undefined ;
   
   ngOnInit() {  
     this.submitted=false;  
@@ -29,10 +30,11 @@ export class AddCoursComponent implements OnInit {
   saveCours(saveCours: any){  
     this.cours=new Cours();     
     this.cours.titre=this.CoursTitre?.value;
-    this.cours.etat=this.CoursEtat?.value;
+    this.cours.status=this.CoursEtat;
     this.cours.desc=this.CoursDesc?.value
     this.cours.lien_cours=this.Courslien?.value;  
     this.submitted = true;  
+    console.log(this.cours.status)
     this.save();  
   }  
   
@@ -56,8 +58,11 @@ export class AddCoursComponent implements OnInit {
   }  
 
   get CoursEtat(){  
-    return this.courssaveform.get('etat');  
+    return this.etat4;  
   } 
+  checkCheckBoxvalue(event:any){
+    this.etat4 = event.target.checked;
+  }
 
   get Courslien(){  
     return this.courssaveform.get('lien');  

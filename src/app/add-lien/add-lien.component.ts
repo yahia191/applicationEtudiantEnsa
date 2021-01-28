@@ -13,6 +13,7 @@ export class AddLienComponent implements OnInit {
   
   liens : Liens=new Liens();  
   submitted = false;  
+  etat5:boolean | undefined ;
   
   ngOnInit() {  
     this.submitted=false;  
@@ -29,7 +30,7 @@ export class AddLienComponent implements OnInit {
   saveLiens(saveLiens: any){  
     this.liens=new Liens();     
     this.liens.titre=this.LiensTitre?.value
-    this.liens.etat=this.LiensEtat?.value;
+    this.liens.status=this.LiensEtat;
     this.liens.desc=this.LiensDesc?.value
     this.liens.lien_liens=this.Lienslien?.value;  
     this.submitted = true;  
@@ -56,8 +57,11 @@ export class AddLienComponent implements OnInit {
   }  
 
   get LiensEtat(){  
-    return this.lienssaveform.get('etat');  
+    return this.etat5;  
   } 
+  checkCheckBoxvalue(event:any){
+    this.etat5 = event.target.checked;
+  }
 
   get Lienslien(){  
     return this.lienssaveform.get('lien');  

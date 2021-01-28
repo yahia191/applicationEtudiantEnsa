@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { LiensService } from "../../app/liens.service";
 import { Liens } from "../liens";
 import { Router } from '@angular/router';
@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class LiensListeComponent implements OnInit {
   lienss: Observable<Liens[]> | undefined;
 
+
   constructor(private liensService: LiensService,
     private router: Router) {}
 
@@ -19,14 +20,15 @@ export class LiensListeComponent implements OnInit {
 
     ngOnInit() {
       this.reloadData();
+     
     }
   
     reloadData() {
       this.lienss = this.liensService.getLienList();
     }
-  
-    /* deleteLiens(id: number) {
-      this.liensService.deleteLiens(id)
+
+    deleteLiens(id: any) {
+      this.liensService.deleteLien(id)
         .subscribe(
           data => {
             console.log(data);
@@ -34,9 +36,14 @@ export class LiensListeComponent implements OnInit {
           },
           error => console.log(error));
     }
+    getLien(id: any){
+      this.liensService.getLien(id)
+        .then(
+          data => {
+            console.log(data);
+          },
+          error => console.log(error));
+    }
   
-  
-    updateLiens(id: number){
-      this.router.navigate(['update', id]);
-    } */
+
   }

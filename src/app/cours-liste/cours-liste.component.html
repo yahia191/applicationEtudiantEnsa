@@ -8,16 +8,19 @@
           <tr>
             <th>Titre</th>
             <th>Description</th>
+            <th>Etat</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let cours of courss | async"> 
+          <tr *ngFor="let cours of courss"> 
             <td>{{cours.titre}}</td>
             <td>{{cours.desc}}</td>
-            <!-- <td><button (click)="deleteCours(cours.id)" class="btn btn-danger">Archiver</button>
-                <button (click)="updateCours(cours.id)" class="btn btn-info" style="margin-left: 10px">Modifier</button>
-            </td> -->
+            <td>{{cours.status}}</td>
+            <td><button (click)="deleteCours(cours.id)" class="btn btn-danger">Archiver</button>
+                <!-- <button (click)="updateCours(cours.id)" class="btn btn-info" style="margin-left: 10px">Modifier</button> -->
+                <button (click)="getCours(cours.id)" class="btn btn-info" style="margin-left: 10px">Afficher</button>
+            </td>
           </tr>
         </tbody>
       </table>

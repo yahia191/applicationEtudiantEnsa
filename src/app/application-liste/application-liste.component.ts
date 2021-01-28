@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./application-liste.component.css']
 })
 export class ApplicationListeComponent implements OnInit {
-  applications: Observable<Application[]> | undefined;
+  applications: any;
 
   constructor(private applicationService: ApplicationService,
     private router: Router) {}
@@ -22,10 +22,17 @@ export class ApplicationListeComponent implements OnInit {
     }
   
     reloadData() {
-      this.applications = this.applicationService.getApplicationList();
+      this.applicationService.getApplicationList()
+      .subscribe(
+        data => {
+          console.log(data);
+          this.applications=data;
+         
+        },
+        error => console.log(error));
     }
   
-    /* deleteApplication(id: number) {
+    deleteApplication(id: any) {
       this.applicationService.deleteApplication(id)
         .subscribe(
           data => {
@@ -34,9 +41,17 @@ export class ApplicationListeComponent implements OnInit {
           },
           error => console.log(error));
     }
+
+    getApplication(id: number){
+      this.applicationService.getApplication(id)
+        .then(
+          data => {
+            console.log(data);
+          },
+          error => console.log(error));
+    }
+
   
-  
-    updateApplication(id: number){
-      this.router.navigate(['update', id]);
-    } */
-  }
+  } 
+
+

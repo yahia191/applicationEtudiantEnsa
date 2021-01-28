@@ -4,6 +4,6 @@ export class Article {
     desc:String| undefined; 
     created_at:Date| undefined;
     updated_at:Date| undefined;
-    etat:Boolean | true | undefined;
+    status:Boolean | false | undefined;
     lien_article:String| undefined;
 }

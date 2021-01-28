@@ -11,8 +11,6 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./utilisateur-list.component.css']
 })
 
-
-
 export class UtilisateurListComponent implements OnInit {
   utilisateurs : any;
   dtOptions: DataTables.Settings = {};
@@ -37,6 +35,8 @@ export class UtilisateurListComponent implements OnInit {
         this.dtTrigger.next();
       });
       
+      
+      
     }
   
     deleteUtilisateur(id: any) {
@@ -52,7 +52,7 @@ export class UtilisateurListComponent implements OnInit {
 
   
   
-    updateStudent(id: number){  
+    /* updateStudent(id: number){  
       this.utilisateurService.getUtilisateur(id)  
         .then(  
           data => {  
@@ -89,5 +89,5 @@ export class UtilisateurListComponent implements OnInit {
     
     get UtilisateurId():any{  
       return this.utilisateurupdateform.get('utilisateur_id');  
-    }  
+    }   */
   }

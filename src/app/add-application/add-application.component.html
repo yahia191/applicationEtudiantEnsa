@@ -21,9 +21,9 @@
               data-placement="right" title="fichier de type cours" required>
           </div>
       
-            <div class="form-group">  
-                <input type="checkbox"  formControlName="etat">
-                publier
+            <div class="form-group" >  
+                <input type="checkbox" (change)="checkCheckBoxvalue($event)" formControlName="etat">
+                Publier l'application aux etudiants
             </div>   
             <button type="submit" class="btn btn-success">Envoyer</button>  
         </form>  
@@ -38,11 +38,11 @@
             <h4 class="alert alert-success" role="alert">
                 <h4 class="alert-heading">Félicitation</h4>
                 <p class="mb-0">
-                    Application ajouter avec succés!
+                    Application ajoutée avec succés!
                 </p>
             </h4>  
             
-           <button (click)="addApplicationForm()" class='btn btn-primary'>Ajouter d autre Application</button>  
+           <button (click)="addApplicationForm()" class='btn btn-primary'>Ajouter d autre Applications</button>  
         </div>        
     </div>  
     <div class="col-sm-4"></div>  

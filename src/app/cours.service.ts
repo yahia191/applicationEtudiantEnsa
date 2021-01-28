@@ -15,7 +15,6 @@ export class CoursService {
   }  
   
   createOrUpdateCours(cours: object) {  
-    console.log(`${this.baseUrl}`+'/admin/add');
     return this.http.post(`${this.baseUrl}`+'/admin/add', cours).toPromise();  
     
   }  

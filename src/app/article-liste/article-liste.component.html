@@ -8,16 +8,19 @@
           <tr>
             <th>Titre</th>
             <th>Description</th>
+            <th>Etat</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let article of articles | async"> 
+          <tr *ngFor="let article of articles"> 
             <td>{{article.titre}}</td>
             <td>{{article.desc}}</td>
-            <!-- <td><button (click)="deleteArticle(article.id)" class="btn btn-danger">Archiver</button>
-                <button (click)="updateArticle(article.id)" class="btn btn-info" style="margin-left: 10px">Modifier</button>
-            </td> -->
+            <td>{{article.status}}</td>
+            <td><button (click)="deleteArticle(article.id)" class="btn btn-danger">Archiver</button>
+                <!-- <button (click)="updateArticle(article.id)" class="btn btn-info" style="margin-left: 10px">Modifier</button> -->
+                <button (click)="getArticle(article.id)" class="btn btn-info" style="margin-left: 10px">afficher</button>
+            </td>
           </tr>
         </tbody>
       </table>

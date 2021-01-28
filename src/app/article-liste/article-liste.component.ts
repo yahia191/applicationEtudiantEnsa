@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./article-liste.component.css']
 })
 export class ArticleListeComponent implements OnInit {
-  articles: Observable<Article[]> | undefined;
+  articles: any;
 
   constructor(private articleService: ArticleService,
     private router: Router) {}
@@ -22,10 +22,18 @@ export class ArticleListeComponent implements OnInit {
     }
   
     reloadData() {
-      this.articles = this.articleService.getArticleList();
+      this.articleService.getArticleList()
+
+      .subscribe(
+        data => {
+          console.log(data);
+          this.articles=data;
+         
+        },
+        error => console.log(error));
     }
   
-    /* deleteArticle(id: number) {
+    deleteArticle(id: any) {
       this.articleService.deleteArticle(id)
         .subscribe(
           data => {
@@ -34,9 +42,15 @@ export class ArticleListeComponent implements OnInit {
           },
           error => console.log(error));
     }
+
+    getArticle(id: number){
+      this.articleService.getArticle(id)
+        .then(
+          data => {
+            console.log(data);
+          },
+          error => console.log(error));
+    }
   
   
-    updateArticle(id: number){
-      this.router.navigate(['update', id]);
-    } */
   }

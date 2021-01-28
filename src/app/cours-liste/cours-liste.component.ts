@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./cours-liste.component.css']
 })
 export class CoursListeComponent implements OnInit {
-  courss: Observable<Cours[]> | undefined;
+  courss: any;
 
   constructor(private coursService: CoursService,
     private router: Router) {}
@@ -22,10 +22,17 @@ export class CoursListeComponent implements OnInit {
     }
   
     reloadData() {
-      this.courss = this.coursService.getCoursList();
+      this.coursService.getCoursList()
+      .subscribe(
+        data => {
+          console.log(data);
+          this.courss=data;
+         
+        },
+        error => console.log(error));
     }
   
-    /* deleteCours(id: number) {
+    deleteCours(id: any) {
       this.coursService.deleteCours(id)
         .subscribe(
           data => {
@@ -36,7 +43,12 @@ export class CoursListeComponent implements OnInit {
     }
   
   
-    updateCours(id: number){
-      this.router.navigate(['update', id]);
-    } */
+    getCours(id: number){
+      this.coursService.getCours(id)
+        .then(
+          data => {
+            console.log(data);
+          },
+          error => console.log(error));
+    }
   }

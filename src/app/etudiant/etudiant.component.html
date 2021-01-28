@@ -2,55 +2,13 @@
 <html class="loading" lang="en" data-textdirection="ltr">
 <!-- BEGIN: Head-->
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="PIXINVENT">
-    <title>To-Do - Vuexy - Bootstrap HTML admin template</title>
-    <link rel="apple-touch-icon" href="/assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/ico/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
 
-    <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="/assets/vendors/css/vendors.min.css">
-    <!-- END: Vendor CSS-->
-
-    <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/colors.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/components.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/themes/semi-dark-layout.css">
-
-    <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="/assets/css/core/menu/menu-types/horizontal-menu.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/core/colors/palette-gradient.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/pages/app-todo.css">
-    <!-- END: Page CSS-->
-
-    <!-- BEGIN: Custom CSS-->
-    
-    <!-- END: Custom CSS-->
-
-</head>
 <!-- END: Head-->
 
 <!-- BEGIN: Body-->
 
 <body style="overflow: visible" class=" horizontal-menu content-left-sidebar todo-application navbar-floating footer-static  " data-open="hover" data-menu="horizontal-menu" data-col="content-left-sidebar">
-    <div *ngIf="router.url === '/login'">
-        <app-login></app-login> 
-    </div>
-    <div *ngIf="router.url === '/etudiant'">
-        <app-etudiant></app-etudiant> 
-    </div>
-    <!-- BEGIN: Header-->
-    <div *ngIf="router.url != '/login'">
-    <div *ngIf="router.url != '/etudiant'">
+    
     <nav class="header-navbar navbar-expand-lg navbar navbar-with-menu navbar-fixed navbar-shadow navbar-brand-center">
         <div class="navbar-header d-xl-block d-none">
             <ul class="nav navbar-nav flex-row">
@@ -263,7 +221,6 @@
                                 Utilisateur
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                <a class="dropdown-item" routerLink="add-utilisateur">Ajouter un utilisateur</a>
                                 <a class="dropdown-item" routerLink="view-utilisateur">Liste des utilisateurs</a>
                             </div>
                         </div>
@@ -274,7 +231,6 @@
                                 Cours
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                <a class="dropdown-item" routerLink="add-cours">Ajouter un cours</a>
                                 <a class="dropdown-item" routerLink="view-cours">Liste des cours</a>
                             </div>
                         </div>
@@ -285,7 +241,6 @@
                                 Liens
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                <a class="dropdown-item" routerLink="add-liens">Ajouter un lien</a>
                                 <a class="dropdown-item" routerLink="view-liens">Liste des liens</a>
                             </div>
                         </div>
@@ -296,7 +251,6 @@
                                 Applications
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                <a class="dropdown-item" routerLink="add-application">Ajouter un application</a>
                                 <a class="dropdown-item" routerLink="view-application">Liste des applications</a>
                             </div>
                         </div>
@@ -307,7 +261,6 @@
                                 Articles
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                <a class="dropdown-item" routerLink="add-article">Ajouter un article</a>
                                 <a class="dropdown-item" routerLink="view-article">Liste des articles</a>
                             </div>
                         </div>
@@ -330,26 +283,6 @@
         
             <div>
                 <div class="content-wrapper">
-                  <div class="content-header row">
-                    <div class="content-header-left col-md-9 col-12 mb-2">
-                        <div class="row breadcrumbs-top">
-                            <div class="col-12">
-                                <h2 class="content-header-title float-left mb-0">Ajouter Utilisateur</h2>
-                                <div class="breadcrumb-wrapper col-12">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.html">Home</a>
-                                        </li>
-                                        <li class="breadcrumb-item"><a href="#">Card</a>
-                                        </li>
-                                        <li class="breadcrumb-item active">Advance Card
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
                     <div class="content-header row">
                     </div>
                     <div class="content-body">
@@ -401,8 +334,7 @@
     <!-- BEGIN: Page JS-->
     <script src="/assets/js/scripts/pages/app-todo.js"></script>
     <!-- END: Page JS-->
-</div>
-</div>
+
 </body>
 <!-- END: Body-->
 

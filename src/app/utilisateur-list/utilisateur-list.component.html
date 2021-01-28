@@ -2,8 +2,8 @@
     <div class="panel-heading">
       <h2>Utilisateur List</h2>
     </div>
-    <div class="panel-body">
-      <table class="table table-striped" >
+    <div class="table-responsive">
+      <table class="table data-list-view" >
         <thead>
           <tr>
             <th>Prenom</th>
@@ -18,8 +18,9 @@
             <td>{{utilisateur.nom}}</td>
             <td>{{utilisateur.email}}</td>
              <td><button (click)="deleteUtilisateur(utilisateur.id)" class="btn btn-danger">Supprimer</button>
-                <button (click)="createOrUpdateUtilisateur(utilisateur.id)" class="btn btn-info" style="margin-left: 10px" 
-                data-toggle="modal" data-target="#myModal">Modifier</button>
+                <button class="btn btn-info">Modifier</button>
+               <!--  <button (click)="createOrUpdateUtilisateur(utilisateur.id)" class="btn btn-info" style="margin-left: 10px" 
+                data-toggle="modal" data-target="#myModal">Modifier</button> -->
             </td> 
           </tr>
         </tbody>
@@ -29,19 +30,23 @@
 
   
 
+<!--  -->
 
-  <div class="modal" id="myModal">  
+<!-- -->
+
+<!--  -->
+<!--   <div class="modal" id="myModal">  
     <div class="modal-dialog">  
       <div class="modal-content">  
-            <form [formGroup]="tilisateurupdateform" #updstu (ngSubmit)="updateUser(updusr)">  
+            <form [formGroup]="tilisateurupdateform" #updstu (ngSubmit)="updateUser(updusr)">   -->
         <!-- Modal Header -->  
-        <div class="modal-header">  
+<!--         <div class="modal-header">  
           <h4 class="modal-title" style="text-align: center">Update Student</h4>  
             
-        </div>  
+        </div>   -->
           
         <!-- Modal body -->  
-        <div class="modal-body" *ngFor="let student of studentlist " >  
+<!--         <div class="modal-body" *ngFor="let student of studentlist " >  
             <div [hidden]="isupdated">  
 
                 <input type="hidden" class="form-control"  formControlName="student_id" [(ngModel)]="student.student_id">  
@@ -70,9 +75,9 @@
               </div>          
                   
         </div>  
-          
+           -->
         <!-- Modal footer -->  
-        <div class="modal-footer" >  
+<!--         <div class="modal-footer" >  
           <button type="submit" class="btn btn-success" [hidden]="isupdated">Update</button>  
           <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="changeisUpdate()">Close</button>  
         </div>  
@@ -80,4 +85,4 @@
     </form>  
       </div>  
     </div>  
-  </div>  
+  </div>   -->

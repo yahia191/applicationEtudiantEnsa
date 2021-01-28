@@ -10,19 +10,23 @@ import { ArticleListeComponent } from './article-liste/article-liste.component';
 import { AddApplicationComponent } from './add-application/add-application.component';   
 import { ApplicationListeComponent } from './application-liste/application-liste.component'; 
 import { Routes, RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { EtudiantComponent } from './etudiant/etudiant.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'view-utilisateur', pathMatch: 'full' },  
+  { path: '', redirectTo: 'login', pathMatch: 'full' },  
   { path: 'view-utilisateur', component: UtilisateurListComponent },  
   { path: 'add-utilisateur', component: AddUtilisateurComponent },  
-  { path: 'add-cour', component: AddCoursComponent },  
+  { path: 'add-cours', component: AddCoursComponent },  
   { path: 'view-cours', component: CoursListeComponent } ,
   { path: 'add-application', component: AddApplicationComponent },  
   { path: 'view-application', component: ApplicationListeComponent }  ,
   { path: 'add-article', component: AddArticleComponent },  
   { path: 'view-article', component: ArticleListeComponent },
   { path: 'add-liens', component: AddLienComponent },  
-  { path: 'view-liens', component: LiensListeComponent }    
+  { path: 'view-liens', component: LiensListeComponent },
+  { path: 'login', component:LoginComponent},
+  { path: 'etudiant', component:EtudiantComponent }
 ];
 
 @NgModule({

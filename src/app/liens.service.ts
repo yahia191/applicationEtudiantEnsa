@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,8 +15,7 @@ export class LiensService {
     return this.http.get(`${this.baseUrl}`+'/admin/show');  
   }  
   
-  createOrUpdateLien(lien: object) {  
-    console.log(`${this.baseUrl}`+'/admin/add');
+  createOrUpdateLien(lien: object) { 
     return this.http.post(`${this.baseUrl}`+'/admin/add', lien).toPromise();  
     
   }  

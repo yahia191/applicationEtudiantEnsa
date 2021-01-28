@@ -15,7 +15,6 @@ export class ArticleService {
   }  
   
   createOrUpdateArticle(article: object) {  
-    console.log(`${this.baseUrl}`+'/admin/add');
     return this.http.post(`${this.baseUrl}`+'/admin/add', article).toPromise();  
     
   }  

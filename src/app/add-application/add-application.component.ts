@@ -14,6 +14,7 @@ export class AddApplicationComponent implements OnInit {
   
   application : Application=new Application();  
   submitted = false;  
+  etat2:boolean | undefined ;
   
   ngOnInit() {  
     this.submitted=false;  
@@ -30,10 +31,11 @@ export class AddApplicationComponent implements OnInit {
   saveApplication(saveApplication: any){  
     this.application=new Application();     
     this.application.titre=this.ApplicationTitre?.value
-    this.application.etat=this.ApplicationEtat?.value;
+    this.application.status=this.ApplicationEtat;
     this.application.desc=this.ApplicationDesc?.value
     this.application.lien_application=this.Applicationlien?.value;  
     this.submitted = true;  
+    console.log(this.application.status)
     this.save();  
   }  
 
@@ -60,8 +62,13 @@ export class AddApplicationComponent implements OnInit {
   }  
 
   get ApplicationEtat(){  
-    return this.applicationsaveform.get('etat');  
+   
+    return this.etat2; 
+
   } 
+  checkCheckBoxvalue(event:any){
+    this.etat2 = event.target.checked;
+  }
 
   get Applicationlien(){  
     return this.applicationsaveform.get('lien');  

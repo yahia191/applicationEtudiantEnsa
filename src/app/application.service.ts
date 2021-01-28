@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';  
 import { Observable } from 'rxjs';  
+import { Application } from './application';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class ApplicationService {
     return this.http.get(`${this.baseUrl}`+'/admin/show');  
   }  
   
-  createOrUpdateApplication(application: object) {  
+  createOrUpdateApplication(application: Application) {  
+    console.log(application.status)
     return this.http.post(`${this.baseUrl}`+'/admin/add', application).toPromise();  
   }  
   

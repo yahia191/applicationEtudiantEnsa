@@ -8,6 +8,7 @@
           <tr>
             <th>Titre</th>
             <th>Description</th>
+            <th>Etat</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -15,9 +16,11 @@
           <tr *ngFor="let liens of lienss | async"> 
             <td>{{liens.titre}}</td>
             <td>{{liens.desc}}</td>
-            <!-- <td><button (click)="deleteLiens(liens.id)" class="btn btn-danger">Archiver</button>
-                <button (click)="updateLiens(liens.id)" class="btn btn-info" style="margin-left: 10px">Modifier</button>
-            </td> -->
+            <td>{{liens.status}}</td>
+            <td><button (click)="deleteLiens(liens.id)" class="btn btn-danger">Archiver</button>
+                <!-- <button (click)="updateLiens(liens.id)" class="btn btn-info" style="margin-left: 10px">Modifier</button> -->
+                <button (click)="getLien(liens.id)" class="btn btn-info" style="margin-left: 10px">Afficher</button>
+            </td>
           </tr>
         </tbody>
       </table>

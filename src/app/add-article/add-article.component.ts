@@ -12,7 +12,8 @@ export class AddArticleComponent implements OnInit {
  constructor(private articleservice:ArticleService) { }  
   
   article : Article=new Article();  
-  submitted = false;  
+  submitted = false; 
+  etat3:boolean | undefined ; 
   
   ngOnInit() {  
     this.submitted=false;  
@@ -28,11 +29,12 @@ export class AddArticleComponent implements OnInit {
   
   saveArticle(saveArticle: any){  
     this.article=new Article();     
-    this.article.titre=this.ApplicationTitre?.value
-    this.article.etat=this.ApplicationEtat?.value;
-    this.article.desc=this.ApplicationDesc?.value
-    this.article.lien_article=this.Applicationlien?.value;  
-    this.submitted = true;  
+    this.article.titre=this.ArticleTitre?.value
+    this.article.status=this.ArticleEtat;
+    this.article.desc=this.ArticleDesc?.value
+    this.article.lien_article=this.Articlelien?.value;  
+    this.submitted = true; 
+    console.log(this.article.status) 
     this.save();  
   }  
   
@@ -47,23 +49,26 @@ export class AddArticleComponent implements OnInit {
     this.article = new Article();  
   }  
   
-  get ApplicationTitre(){  
+  get ArticleTitre(){  
     return this.articlesaveform.get('titre');  
   }  
   
-  get ApplicationDesc(){  
+  get ArticleDesc(){  
     return this.articlesaveform.get('description');  
   }  
 
-  get ApplicationEtat(){  
-    return this.articlesaveform.get('etat');  
+  get ArticleEtat(){  
+    return this.etat3;  
   } 
+  checkCheckBoxvalue(event:any){
+    this.etat3 = event.target.checked;
+  }
 
-  get Applicationlien(){  
+  get Articlelien(){  
     return this.articlesaveform.get('lien');  
   }  
   
-  addApplicationForm(){  
+  addArticleForm(){  
     this.submitted=false;  
     this.articlesaveform.reset();  
   }  

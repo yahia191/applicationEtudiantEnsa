@@ -18,6 +18,8 @@ import { ApplicationListeComponent } from './application-liste/application-liste
 import { LiensListeComponent } from './liens-liste/liens-liste.component'; 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DataTablesModule } from 'angular-datatables';
+import { LoginComponent } from './login/login.component';
+import { EtudiantComponent } from './etudiant/etudiant.component';
 /* import { UpdateUtilisateurComponent } from './update-utilisateur/update-utilisateur.component'; */
 
 @NgModule({
@@ -33,6 +35,8 @@ import { DataTablesModule } from 'angular-datatables';
     ArticleListeComponent,
     ApplicationListeComponent,
     LiensListeComponent,
+    LoginComponent,
+    EtudiantComponent,
   /*   UpdateUtilisateurComponent */
   ],
   imports: [
