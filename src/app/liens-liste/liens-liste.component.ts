@@ -18,11 +18,25 @@ export class LiensListeComponent implements OnInit {
 
 
 
+    isChecked: boolean = false;
+    deleteApplication(id: any) {
+      this.liensService.deleteLien(id)
+        .subscribe(
+          data => {
+            console.log(data);
+            this.reloadData();
+          },
+          error => console.log(error));
+    }
+    checkValue(event: any){
+      this.isChecked=event;
+console.log(this.isChecked)
+   }
     ngOnInit() {
       this.reloadData();
-     
+
     }
-  
+
     reloadData() {
       this.lienss = this.liensService.getLienList();
     }

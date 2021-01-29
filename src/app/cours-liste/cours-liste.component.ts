@@ -15,23 +15,37 @@ export class CoursListeComponent implements OnInit {
   constructor(private coursService: CoursService,
     private router: Router) {}
 
+    isChecked: boolean = false;
+    deleteApplication(id: any) {
+      this.coursService.deleteCours(id)
+        .subscribe(
+          data => {
+            console.log(data);
+            this.reloadData();
+          },
+          error => console.log(error));
+    }
+    checkValue(event: any){
+      this.isChecked=event;
+console.log(this.isChecked)
+   }
 
 
     ngOnInit() {
       this.reloadData();
     }
-  
+
     reloadData() {
       this.coursService.getCoursList()
       .subscribe(
         data => {
           console.log(data);
           this.courss=data;
-         
+
         },
         error => console.log(error));
     }
-  
+
     deleteCours(id: any) {
       this.coursService.deleteCours(id)
         .subscribe(
@@ -41,8 +55,8 @@ export class CoursListeComponent implements OnInit {
           },
           error => console.log(error));
     }
-  
-  
+
+
     getCours(id: number){
       this.coursService.getCours(id)
         .then(

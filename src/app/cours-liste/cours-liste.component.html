@@ -1,3 +1,36 @@
+<div class="content-header row">
+  <div class="content-header-left col-md-9 col-12 mb-2">
+      <div class="row breadcrumbs-top">
+          <div class="col-12">
+              <h2 class="content-header-title float-left mb-0"></h2>
+              <div class="breadcrumb-wrapper col-12">
+                  <ol class="breadcrumb">
+
+                  </ol>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
+      <div class="form-group breadcrum-right">
+        <div class="custom-control custom-switch mr-2 mb-1">
+          <p class="mb-0">Mode Utilisateur</p>
+          <input type="checkbox" class="custom-control-input" id="customSwitch80" [(ngModel)]="isChecked" (change)="checkValue(isChecked?false:true)">
+          <label class="custom-control-label" for="customSwitch80">
+              <span class="switch-text-left">On</span>
+              <span class="switch-text-right">Off</span>
+          </label>
+      </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div *ngIf="!isChecked">
 <div class="panel panel-primary">
     <div class="panel-heading">
       <h2>Cours List</h2>
@@ -13,7 +46,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let cours of courss"> 
+          <tr *ngFor="let cours of courss">
             <td>{{cours.titre}}</td>
             <td>{{cours.desc}}</td>
             <td>{{cours.status}}</td>
@@ -27,3 +60,29 @@
       </table>
     </div>
   </div>
+</div>
+<div *ngIf="isChecked">
+  <div class="content-body">
+    <!-- Basic example and Profile cards section start -->
+    <section id="basic-examples">
+        <div class="row match-height">
+            <div  *ngFor="let cour of courss"  class="col-xl-4 col-md-6 col-sm-12">
+                <div class="card" style="height: 509.3px;">
+                    <div class="card-content">
+                        <img class="card-img-top img-fluid" src="assets/images/pages/content-img-1.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h5>TITRE : {{cour.titre}}</h5>
+                            <p class="card-text  mb-0">DESCRIPTION : {{cour.desc}}</p>
+                            <!-- <span class="card-text">STATUS : {{application.status}}</span> -->
+                            <div class="card-btns d-flex justify-content-between mt-2">
+                                <a [routerLink]="['/details-cour', cour.id]" class="btn gradient-light-primary text-white waves-effect waves-light">Afficher</a>
+                                <a (click)="deleteApplication(cour.id)" class="btn btn-outline-primary waves-effect waves-light">Archiver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </div>
+</div>

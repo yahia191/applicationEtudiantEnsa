@@ -20,18 +20,18 @@ export class ApplicationListeComponent implements OnInit {
     ngOnInit() {
       this.reloadData();
     }
-  
+
     reloadData() {
       this.applicationService.getApplicationList()
       .subscribe(
         data => {
           console.log(data);
           this.applications=data;
-         
+
         },
         error => console.log(error));
     }
-  
+    isChecked: boolean = false;
     deleteApplication(id: any) {
       this.applicationService.deleteApplication(id)
         .subscribe(
@@ -41,6 +41,10 @@ export class ApplicationListeComponent implements OnInit {
           },
           error => console.log(error));
     }
+    checkValue(event: any){
+      this.isChecked=event;
+console.log(this.isChecked)
+   }
 
     getApplication(id: number){
       this.applicationService.getApplication(id)
@@ -51,9 +55,8 @@ export class ApplicationListeComponent implements OnInit {
           error => console.log(error));
     }
 
+
 /*     detailApplication(id: number){
       this.router.navigate(['details-application', id]);
     } */
-  } 
-
-
+  }

@@ -14,13 +14,22 @@ export class ArticleListeComponent implements OnInit {
 
   constructor(private articleService: ArticleService,
     private router: Router) {}
-
+    isChecked: boolean = false;
 
 
     ngOnInit() {
       this.reloadData();
     }
-  
+
+    deleteApplication(id: any) {
+      this.articleService.deleteArticle(id)
+        .subscribe(
+          data => {
+            console.log(data);
+            this.reloadData();
+          },
+          error => console.log(error));
+    }
     reloadData() {
       this.articleService.getArticleList()
 
@@ -28,11 +37,11 @@ export class ArticleListeComponent implements OnInit {
         data => {
           console.log(data);
           this.articles=data;
-         
+
         },
         error => console.log(error));
     }
-  
+
     deleteArticle(id: any) {
       this.articleService.deleteArticle(id)
         .subscribe(
@@ -51,9 +60,13 @@ export class ArticleListeComponent implements OnInit {
           },
           error => console.log(error));
     }
-    
+
     detailArticle(id: number){
       this.router.navigate(['details-article', id]);
     }
-  
+
+    checkValue(event: any){
+      this.isChecked=event;
+console.log(this.isChecked)
+   }
   }

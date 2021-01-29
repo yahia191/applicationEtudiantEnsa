@@ -1,4 +1,35 @@
+<div class="content-header row">
+  <div class="content-header-left col-md-9 col-12 mb-2">
+      <div class="row breadcrumbs-top">
+          <div class="col-12">
+              <h2 class="content-header-title float-left mb-0"></h2>
+              <div class="breadcrumb-wrapper col-12">
+                  <ol class="breadcrumb">
 
+                  </ol>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
+      <div class="form-group breadcrum-right">
+        <div class="custom-control custom-switch mr-2 mb-1">
+          <p class="mb-0">Mode Utilisateur</p>
+          <input type="checkbox" class="custom-control-input" id="customSwitch80" [(ngModel)]="isChecked" (change)="checkValue(isChecked?false:true)">
+          <label class="custom-control-label" for="customSwitch80">
+              <span class="switch-text-left">On</span>
+              <span class="switch-text-right">Off</span>
+          </label>
+      </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+<div *ngIf="!isChecked">
 <div class="panel panel-primary">
     <div class="panel-heading">
       <h2>Application List</h2>
@@ -14,7 +45,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let application of applications"> 
+          <tr *ngFor="let application of applications">
             <td>{{application.titre}}</td>
             <td>{{application.desc}}</td>
             <td>{{application.status}}</td>
@@ -29,7 +60,8 @@
       </table>
     </div>
   </div>
-  
+</div>
+<div *ngIf="isChecked">
   <div class="content-body">
     <!-- Basic example and Profile cards section start -->
     <section id="basic-examples">
@@ -44,12 +76,13 @@
                             <!-- <span class="card-text">STATUS : {{application.status}}</span> -->
                             <div class="card-btns d-flex justify-content-between mt-2">
                                 <a [routerLink]="['/details-application', application.id]" class="btn gradient-light-primary text-white waves-effect waves-light">Afficher</a>
-                                <a (click)="deleteApplication(application.id)" class="btn btn-outline-primary waves-effect waves-light">archiver</a>
+                                <a (click)="deleteApplication(application.id)" class="btn btn-outline-primary waves-effect waves-light">Archiver</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>   
+        </div>
     </section>
   </div>
+</div>
