@@ -8,7 +8,7 @@
 <!-- BEGIN: Body-->
 
 <body style="overflow: visible" class=" horizontal-menu content-left-sidebar todo-application navbar-floating footer-static  " data-open="hover" data-menu="horizontal-menu" data-col="content-left-sidebar">
-    
+
     <nav class="header-navbar navbar-expand-lg navbar navbar-with-menu navbar-fixed navbar-shadow navbar-brand-center">
         <div class="navbar-header d-xl-block d-none">
             <ul class="nav navbar-nav flex-row">
@@ -212,26 +212,16 @@
             <div class="navbar-container main-menu-content" data-menu="menu-container">
                 <!-- include ../../../includes/mixins-->
                 <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
-                    
+
                     <div class="card-content">
                         <div class="card-body">
-                    <div class="btn-group mb-1">
-                        <div class="dropdown">
-                            <button class="btn bg-gradient-primary dropdown-toggle mr-1 mb-1" type="button" id="dropdownMenuButton101" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Utilisateur
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                <a class="dropdown-item" routerLink="view-utilisateur">Liste des utilisateurs</a>
-                            </div>
-                        </div>
-                    </div>
                     <div class="btn-group mb-1">
                         <div class="dropdown">
                             <button class="btn bg-gradient-success dropdown-toggle mr-1 mb-1" type="button" id="dropdownMenuButton202" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Cours
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                <a class="dropdown-item" routerLink="view-cours">Liste des cours</a>
+                                <a class="dropdown-item" (click)="reloadDataArticle()">Liste des cours</a>
                             </div>
                         </div>
                     </div>
@@ -241,7 +231,7 @@
                                 Liens
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                <a class="dropdown-item" routerLink="view-liens">Liste des liens</a>
+                                <a class="dropdown-item" (click)="reloadDataLiens()">Liste des liens</a>
                             </div>
                         </div>
                     </div>
@@ -251,7 +241,7 @@
                                 Applications
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                <a class="dropdown-item" routerLink="view-application">Liste des applications</a>
+                                <a class="dropdown-item" (click)="reloadDataApplication()">Liste des applications</a>
                             </div>
                         </div>
                     </div>
@@ -261,7 +251,7 @@
                                 Articles
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                <a class="dropdown-item" routerLink="view-article">Liste des articles</a>
+                                <a class="dropdown-item" (click)="reloadDataCours()">Liste des articles</a>
                             </div>
                         </div>
                     </div>
@@ -275,29 +265,115 @@
 
     <!-- BEGIN: Content-->
     <div class="app-content content">
-      
+
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
-        
+
         <div>
-        
+
             <div>
                 <div class="content-wrapper">
                     <div class="content-header row">
                     </div>
-                    <div class="content-body">
-                        <div class="app-content-overlay"></div>
-                        <div class="todo-app-area">
-                            <div class="todo-app-list-wrapper">
-                                <div class="todo-app-list">
-                                    <div class="todo-task-list list-group">
-                                        <ul class="todo-task-list-wrapper media-list">
-                                          <router-outlet></router-outlet>
-                                        </ul>
+                    <div *ngIf="listeapplication">
+                      <div class="content-body">
+                        <!-- Basic example and Profile cards section start -->
+                        <section id="basic-examples">
+                            <div class="row match-height">
+                                <div  *ngFor="let application of applications"  class="col-xl-4 col-md-6 col-sm-12">
+                                    <div class="card" style="height: 509.3px;">
+                                        <div class="card-content">
+                                            <img class="card-img-top img-fluid" src="assets/images/pages/content-img-1.jpg" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h5>TITRE : {{application.titre}}</h5>
+                                                <p class="card-text  mb-0">DESCRIPTION : {{application.desc}}</p>
+                                                <!-- <span class="card-text">STATUS : {{application.status}}</span> -->
+                                                <div class="card-btns d-flex justify-content-between mt-2">
+                                                    <a (click)="getApplication(application.id)" class="btn btn-outline-primary waves-effect waves-light">Afficher</a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </section>
+                      </div>
+                    </div>
+
+                    <div *ngIf="listecours">
+                      <div class="content-body">
+                        <!-- Basic example and Profile cards section start -->
+                        <section id="basic-examples">
+                            <div class="row match-height">
+                                <div  *ngFor="let cour of cours"  class="col-xl-4 col-md-6 col-sm-12">
+                                    <div class="card" style="height: 509.3px;">
+                                        <div class="card-content">
+                                            <img class="card-img-top img-fluid" src="assets/images/pages/content-img-1.jpg" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h5>TITRE : {{cour.titre}}</h5>
+                                                <p class="card-text  mb-0">DESCRIPTION : {{cour.desc}}</p>
+                                                <!-- <span class="card-text">STATUS : {{application.status}}</span> -->
+                                                <div class="card-btns d-flex justify-content-between mt-2">
+                                                    <a (click)="getCours(cour.id)" class="btn btn-outline-primary waves-effect waves-light">Afficher</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                      </div>
+                    </div>
+
+                    <div *ngIf="listelien">
+                      <div class="content-body">
+                        <!-- Basic example and Profile cards section start -->
+                        <section id="basic-examples">
+                            <div class="row match-height">
+                                <div  *ngFor="let lien of liens"  class="col-xl-4 col-md-6 col-sm-12">
+                                    <div class="card" style="height: 509.3px;">
+                                        <div class="card-content">
+                                            <img class="card-img-top img-fluid" src="assets/images/pages/content-img-1.jpg" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h5>TITRE : {{lien.titre}}</h5>
+                                                <p class="card-text  mb-0">DESCRIPTION : {{lien.desc}}</p>
+                                                <!-- <span class="card-text">STATUS : {{application.status}}</span> -->
+                                                <div class="card-btns d-flex justify-content-between mt-2">
+                                                    <a (click)="getLien(lien.id)" class="btn btn-outline-primary waves-effect waves-light">Afficher</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                      </div>
+                    </div>
+
+
+                    <div *ngIf="listearticle">
+                      <div class="content-body">
+                        <!-- Basic example and Profile cards section start -->
+                        <section id="basic-examples">
+                            <div class="row match-height">
+                                <div  *ngFor="let article of articles"  class="col-xl-4 col-md-6 col-sm-12">
+                                    <div class="card" style="height: 509.3px;">
+                                        <div class="card-content">
+                                            <img class="card-img-top img-fluid" src="assets/images/pages/content-img-1.jpg" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h5>TITRE : {{article.titre}}</h5>
+                                                <p class="card-text  mb-0">DESCRIPTION : {{article.desc}}</p>
+                                                <!-- <span class="card-text">STATUS : {{application.status}}</span> -->
+                                                <div class="card-btns d-flex justify-content-between mt-2">
+                                                    <a (click)="getArticle(article.id)" class="btn btn-outline-primary waves-effect waves-light">Afficher</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -339,8 +415,3 @@
 <!-- END: Body-->
 
 </html>
-
-
-
-
-                         

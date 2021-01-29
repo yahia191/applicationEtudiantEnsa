@@ -26,4 +26,8 @@ export class ArticleService {
   getArticle(id: number) {  
     return this.http.get(`${this.baseUrl}/admin/${id}`).toPromise();  
   }  
+
+  getArticleListUser(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`+'/user/show');
+  }
 }

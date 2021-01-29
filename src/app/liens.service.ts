@@ -27,4 +27,8 @@ export class LiensService {
   getLien(id: number) {  
     return this.http.get(`${this.baseUrl}/admin/${id}`).toPromise();  
   }  
+
+  getLienListUser(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`+'/user/show');
+  }
 }

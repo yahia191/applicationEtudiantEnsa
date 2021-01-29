@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./liens-liste.component.css']
 })
 export class LiensListeComponent implements OnInit {
-  lienss: Observable<Liens[]> | undefined;
+  lienss: any;
 
 
   constructor(private liensService: LiensService,
@@ -44,6 +44,8 @@ export class LiensListeComponent implements OnInit {
           },
           error => console.log(error));
     }
-  
+    detailLien(id: number){
+      this.router.navigate(['details-lien', id]);
+    }
 
   }

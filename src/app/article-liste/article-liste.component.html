@@ -19,7 +19,8 @@
             <td>{{article.status}}</td>
             <td><button (click)="deleteArticle(article.id)" class="btn btn-danger">Archiver</button>
                 <!-- <button (click)="updateArticle(article.id)" class="btn btn-info" style="margin-left: 10px">Modifier</button> -->
-                <button (click)="getArticle(article.id)" class="btn btn-info" style="margin-left: 10px">afficher</button>
+                <!-- <button (click)="getArticle(article.id)" class="btn btn-info" style="margin-left: 10px">afficher</button> -->
+                <button (click)="detailArticle(article.id)" class="btn btn-info" style="margin-left: 10px">Afficher</button>
             </td>
           </tr>
         </tbody>

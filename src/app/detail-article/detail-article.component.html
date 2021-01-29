@@ -1,0 +1,21 @@
+<h2 class="info">Detail article</h2> 
+
+<hr/>
+<div *ngIf="article">
+  <div>
+    <label><h1 class="info" >Titre : </h1></label> {{article.titre}}
+  </div>
+  <div>
+    <label><h3 class="info" >Description : </h3></label> {{article.desc}}
+  </div> 
+  <div>
+    <label><h5 class="warning">Lien: </h5></label> {{article.lien_article}}
+  </div> 
+</div>
+
+<br>
+<br>
+<div class="col-12" >
+<button (click)="downloadFile()" class="btn btn-info mr-1 mb-1 waves-effect waves-light" >telecharger l'article</button>
+<button (click)="list()" class="btn btn-warning mr-1 mb-1 waves-effect waves-light">retour a la liste des articles</button><br>
+</div>

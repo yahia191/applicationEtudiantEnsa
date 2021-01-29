@@ -26,4 +26,8 @@ export class CoursService {
   getCours(id: number) {  
     return this.http.get(`${this.baseUrl}/admin/${id}`).toPromise();  
   }  
+
+  getCoursListUser(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`+'/user/show');
+  }
 }

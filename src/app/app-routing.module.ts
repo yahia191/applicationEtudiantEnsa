@@ -12,6 +12,13 @@ import { ApplicationListeComponent } from './application-liste/application-liste
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { EtudiantComponent } from './etudiant/etudiant.component';
+import { DetailApplicationComponent } from './detail-application/detail-application.component';
+import { DetailArticleComponent } from './detail-article/detail-article.component';
+import { DetailCoursComponent } from './detail-cours/detail-cours.component';
+import { DetailLienComponent } from './detail-lien/detail-lien.component';
+
+
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },  
@@ -26,7 +33,11 @@ const routes: Routes = [
   { path: 'add-liens', component: AddLienComponent },  
   { path: 'view-liens', component: LiensListeComponent },
   { path: 'login', component:LoginComponent},
-  { path: 'etudiant', component:EtudiantComponent }
+  { path: 'etudiant', component:EtudiantComponent },
+  { path: 'details-application/:id', component: DetailApplicationComponent },
+  { path: 'details-article/:id', component: DetailArticleComponent },
+  { path: 'details-cours/:id', component: DetailCoursComponent },
+  { path: 'details-lien/:id', component: DetailLienComponent },
 ];
 
 @NgModule({

@@ -51,7 +51,9 @@ export class ApplicationListeComponent implements OnInit {
           error => console.log(error));
     }
 
-  
+/*     detailApplication(id: number){
+      this.router.navigate(['details-application', id]);
+    } */
   } 
 
 

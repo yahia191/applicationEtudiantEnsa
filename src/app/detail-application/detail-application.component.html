@@ -1,0 +1,23 @@
+<h2 class="info">Detail application</h2> 
+
+<hr/>
+<div *ngIf="application">
+  <div>
+    <label><h1 class="info" >Titre : </h1></label> {{application.titre}}
+  </div>
+  <div>
+    <label><h3 class="info" >Description : </h3></label> {{application.desc}}
+  </div> 
+  <div>
+    <label><h5 class="warning">Lien: </h5></label> {{application.lien_application}}
+  </div> 
+</div>
+
+<br>
+<br>
+<div class="col-12" >
+<button (click)="downloadFile()" class="btn btn-info mr-1 mb-1 waves-effect waves-light" >telecharger l'application</button>
+<button (click)="list()" class="btn btn-warning mr-1 mb-1 waves-effect waves-light">retour a la liste des applications</button><br>
+</div>
+
+

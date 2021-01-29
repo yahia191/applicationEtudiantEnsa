@@ -27,4 +27,7 @@ export class ApplicationService {
   getApplication(id: number) {  
     return this.http.get(`${this.baseUrl}/admin/${id}`).toPromise();  
   }  
+  getApplicationListUser(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`+'/user/show');
+  }
 }

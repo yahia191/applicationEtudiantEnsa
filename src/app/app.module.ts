@@ -20,6 +20,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DataTablesModule } from 'angular-datatables';
 import { LoginComponent } from './login/login.component';
 import { EtudiantComponent } from './etudiant/etudiant.component';
+import { DetailApplicationComponent } from './detail-application/detail-application.component';
+import { DetailLienComponent } from './detail-lien/detail-lien.component';
+import { DetailCoursComponent } from './detail-cours/detail-cours.component';
+import { DetailArticleComponent } from './detail-article/detail-article.component';
 /* import { UpdateUtilisateurComponent } from './update-utilisateur/update-utilisateur.component'; */
 
 @NgModule({
@@ -37,6 +41,10 @@ import { EtudiantComponent } from './etudiant/etudiant.component';
     LiensListeComponent,
     LoginComponent,
     EtudiantComponent,
+    DetailApplicationComponent,
+    DetailLienComponent,
+    DetailCoursComponent,
+    DetailArticleComponent,
   /*   UpdateUtilisateurComponent */
   ],
   imports: [

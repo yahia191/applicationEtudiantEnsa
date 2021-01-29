@@ -51,6 +51,9 @@ export class ArticleListeComponent implements OnInit {
           },
           error => console.log(error));
     }
-  
+    
+    detailArticle(id: number){
+      this.router.navigate(['details-article', id]);
+    }
   
   }
