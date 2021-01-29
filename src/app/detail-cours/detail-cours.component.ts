@@ -30,10 +30,14 @@ export class DetailCoursComponent implements OnInit {
   list(){
     this.router.navigate(['cours']);
   }
-  downloadFile(){
+  downloadFile(d: any){
+    console.log(d)
+    var ret = d.substring(12);
+    console.log(ret)
     let link = document.createElement("a");
-    link.download = "filename";
-    link.href = "assets/applications/application.docx";
+    link.download = ret ;
+    /* /Users/mac/Downloads/courjee.pdf */
+    link.href = "assets/"+ret;
     link.click();
 }
 

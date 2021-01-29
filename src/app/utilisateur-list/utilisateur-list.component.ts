@@ -12,82 +12,97 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 
 export class UtilisateurListComponent implements OnInit {
-  utilisateurs : any;
+  constructor(private utilisateurservice:UtilisateurService) { }
+
+  utilisateursArray: any[] = [];
   dtOptions: DataTables.Settings = {};
-  dtTrigger: Subject<any> = new Subject<any>();
+  dtTrigger: Subject<any>= new Subject();
 
-  constructor(private utilisateurService: UtilisateurService,
-    private router: Router) {}
-
-
-
-    ngOnInit() {
-      this.reloadData();
-      this.dtOptions = {
-        pagingType: 'full_numbers',
-        pageLength: 5
-      };
-    }
-  
-    reloadData() {
-      this.utilisateurService.getUtilisateurList().subscribe(data => {
-        this.utilisateurs = data;
-        this.dtTrigger.next();
-      });
-      
-      
-      
-    }
-  
-    deleteUtilisateur(id: any) {
-      this.utilisateurService.deleteUtilisateur(id)
-        .subscribe(
-          data => {
-            console.log(data);
-            this.reloadData();
-          },
-          error => console.log(error));
-    }
+  utilisateurs: any ;
+  utilisateur : Utilisateur=new Utilisateur();
+  deleteMessage=false;
+  utilisateurlist:any;
+  isupdated = false;
 
 
-  
-  
-    /* updateStudent(id: number){  
-      this.utilisateurService.getUtilisateur(id)  
-        .then(  
-          data => {  
-            this.utilisateurs=data             
-          },  
-          error => console.log(error));  
-    }  
-    utilisateurupdateform=new FormGroup({  
-      utilisateur_id:new FormControl(), 
-      utilisateur_prenom:new FormControl(),  
-      utilisateur_nom:new FormControl(),  
-      utilisateur_email:new FormControl(),  
-    });  
+  ngOnInit() {
+    this.isupdated=false;
+    this.dtOptions = {
+      pageLength: 6,
+      stateSave:true,
+      lengthMenu:[[6, 16, 20, -1], [6, 16, 20, "All"]],
+      processing: true
+    };
+    this.utilisateurservice.getUtilisateurList().subscribe(data =>{
+    this.utilisateurs =data;
+    this.dtTrigger.next();
+    })
+  }
 
-    updateUser(updusr){  
-      this.utilisateurs=new Utilisateur();   
-     this.utilisateurs.id=this.UtilisateurId.value;  
-     this.utilisateurs.nom=this.UtilisateurNom.value;  
-     this.utilisateurs.prenom=this.UtilisateurPrenom.value;  
-     this.utilisateurs.email=this.UtilisateurEmail.value;  
-    }
+  deleteUtilisateur(id: number) {
+    this.utilisateurservice.deleteUtilisateur(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.deleteMessage=true;
+          this.utilisateurservice.getUtilisateurList().subscribe(data =>{
+            this.utilisateurs =data
+            })
+        },
+        error => console.log(error));
+  }
 
-    get UtilisateurNom():any{  
-      return this.utilisateurupdateform.get('utilisateur_prenom');  
-    }  
-    
-    get UtilisateurEmail():any{  
-      return this.utilisateurupdateform.get('utilisateur_nom');  
-    }  
-    
-    get UtilisateurPrenom():any{  
-      return this.utilisateurupdateform.get('utilisateur_email');  
-    }  
-    
-    get UtilisateurId():any{  
-      return this.utilisateurupdateform.get('utilisateur_id');  
-    }   */
+  updateUtilisateur(id: number){
+    this.utilisateurservice.getUtilisateur(id)
+      .then(
+        data => {
+          this.utilisateurlist=[data]
+        },
+        error => console.log(error));
+  }
+
+  utilisateurupdateform=new FormGroup({
+    utilisateur_id:new FormControl(),
+    utilisateur_nom:new FormControl(),
+    utilisateur_email:new FormControl(),
+    utilisateur_prenom:new FormControl()
+  });
+
+  updateStu(updstu: any){
+    this.utilisateur=new Utilisateur();
+   this.utilisateur.id=this.UtilisateurId?.value;
+   this.utilisateur.nom=this.UtilisateurName?.value;
+   this.utilisateur.email=this.UtilisateurEmail?.value;
+   this.utilisateur.prenom=this.UtilisateurPrenom?.value;
+
+
+   this.utilisateurservice.createOrUpdateUtilisateur(this.utilisateur).then (
+    _data => {
+      this.isupdated=true;
+      this.utilisateurservice.getUtilisateurList().subscribe(data =>{
+        this.utilisateurs =[data]
+        })
+    },
+    error => console.log(error));
+  }
+
+  get UtilisateurName(){
+    return this.utilisateurupdateform.get('utilisateur_nom');
+  }
+
+  get UtilisateurEmail(){
+    return this.utilisateurupdateform.get('utilisateur_email');
+  }
+
+  get UtilisateurPrenom(){
+    return this.utilisateurupdateform.get('utilisateur_prenom');
+  }
+
+  get UtilisateurId(){
+    return this.utilisateurupdateform.get('utilisateur_id');
+  }
+
+  changeisUpdate(){
+    this.isupdated=false;
+  }
   }

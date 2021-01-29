@@ -218,10 +218,10 @@
                     <div class="btn-group mb-1">
                         <div class="dropdown">
                             <button class="btn bg-gradient-success dropdown-toggle mr-1 mb-1" type="button" id="dropdownMenuButton202" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Cours
+                                Article
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                <a class="dropdown-item" (click)="reloadDataArticle()">Liste des cours</a>
+                                <a class="dropdown-item" (click)="reloadDataArticle()">Liste des articles</a>
                             </div>
                         </div>
                     </div>
@@ -248,10 +248,10 @@
                     <div class="btn-group mb-1">
                         <div class="dropdown">
                             <button class="btn bg-gradient-warning dropdown-toggle mr-1 mb-1" type="button" id="dropdownMenuButton505" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Articles
+                                cours
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                <a class="dropdown-item" (click)="reloadDataCours()">Liste des articles</a>
+                                <a class="dropdown-item" (click)="reloadDataCours()">Liste des cours</a>
                             </div>
                         </div>
                     </div>
@@ -262,7 +262,10 @@
         </div>
     </div>
     <!-- END: Main Menu-->
-
+<br>
+<br>
+<br>
+<br>
     <!-- BEGIN: Content-->
     <div class="app-content content">
 
@@ -289,10 +292,21 @@
                                                 <p class="card-text  mb-0">DESCRIPTION : {{application.desc}}</p>
                                                 <!-- <span class="card-text">STATUS : {{application.status}}</span> -->
                                                 <div class="card-btns d-flex justify-content-between mt-2">
-                                                    <a (click)="getApplication(application.id)" class="btn btn-outline-primary waves-effect waves-light">Afficher</a>
+                                                    <button  class="btn btn-info" style="margin-left: 10px"
+                                                    data-toggle="modal" data-target="#myModal">Afficher</button>
                                                 </div>
                                             </div>
                                         </div>
+
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+test
+    </div>
+  </div>
+</div>
+
                                     </div>
                                 </div>
                             </div>
@@ -314,9 +328,18 @@
                                                 <p class="card-text  mb-0">DESCRIPTION : {{cour.desc}}</p>
                                                 <!-- <span class="card-text">STATUS : {{application.status}}</span> -->
                                                 <div class="card-btns d-flex justify-content-between mt-2">
-                                                    <a (click)="getCours(cour.id)" class="btn btn-outline-primary waves-effect waves-light">Afficher</a>
+                                                  <button  class="btn btn-info" style="margin-left: 10px"
+                                                  data-toggle="modal" data-target="#myModal">Afficher</button>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="modal" id="myModal">
+                                          <div class="modal-dialog">
+                                            <div class="modal-content">
+                                              <h5>TITRE : {{cour.titre}}</h5>
+                                              <p class="card-text  mb-0">DESCRIPTION : {{cour.desc}}</p>
+                                            </div>
+                                          </div>
                                         </div>
                                     </div>
                                 </div>
@@ -339,9 +362,18 @@
                                                 <p class="card-text  mb-0">DESCRIPTION : {{lien.desc}}</p>
                                                 <!-- <span class="card-text">STATUS : {{application.status}}</span> -->
                                                 <div class="card-btns d-flex justify-content-between mt-2">
-                                                    <a (click)="getLien(lien.id)" class="btn btn-outline-primary waves-effect waves-light">Afficher</a>
+                                                  <button  class="btn btn-info" style="margin-left: 10px"
+                                                  data-toggle="modal" data-target="#myModal">Afficher</button>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="modal" id="myModal">
+                                          <div class="modal-dialog">
+                                            <div class="modal-content">
+                                       <h5>TITRE : {{lien.titre}}</h5>
+                                                <p class="card-text  mb-0">DESCRIPTION : {{lien.desc}}</p>
+                                            </div>
+                                          </div>
                                         </div>
                                     </div>
                                 </div>
@@ -365,10 +397,20 @@
                                                 <p class="card-text  mb-0">DESCRIPTION : {{article.desc}}</p>
                                                 <!-- <span class="card-text">STATUS : {{application.status}}</span> -->
                                                 <div class="card-btns d-flex justify-content-between mt-2">
-                                                    <a (click)="getArticle(article.id)" class="btn btn-outline-primary waves-effect waves-light">Afficher</a>
+                                                  <button  class="btn btn-info" style="margin-left: 10px"
+                                                  data-toggle="modal" data-target="#myModal">Afficher</button>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="modal" id="myModal">
+                                          <div class="modal-dialog">
+                                            <div class="modal-content">
+                                              <h5>TITRE : {{article.titre}}</h5>
+                                              <p class="card-text  mb-0">DESCRIPTION : {{article.desc}}</p>
+                                            </div>
+                                          </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>

@@ -43,7 +43,7 @@
                             <p class="card-text  mb-0">DESCRIPTION : {{application.desc}}</p>
                             <!-- <span class="card-text">STATUS : {{application.status}}</span> -->
                             <div class="card-btns d-flex justify-content-between mt-2">
-                                <a (click)="detailApplication(application.id)" class="btn gradient-light-primary text-white waves-effect waves-light">Afficher</a>
+                                <a [routerLink]="['/details-application', application.id]" class="btn gradient-light-primary text-white waves-effect waves-light">Afficher</a>
                                 <a (click)="deleteApplication(application.id)" class="btn btn-outline-primary waves-effect waves-light">archiver</a>
                             </div>
                         </div>
